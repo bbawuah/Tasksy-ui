@@ -40,7 +40,7 @@ function Header() {
 
   return (
     <header className="header">
-      <Link to="/dashboard">
+      <Link to={state.user.length === 0 ? "/" : "/dashboard"}>
         <h1>Tasksy</h1>
       </Link>
       <nav>
