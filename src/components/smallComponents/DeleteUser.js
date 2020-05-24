@@ -30,7 +30,7 @@ function DeleteUser() {
 
     // Send user name to server
     axios
-      .delete(`https://api.tasksy.work/users/me`, {
+      .delete(`http://api.tasksy.work/users/me`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
