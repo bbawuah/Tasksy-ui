@@ -28,7 +28,7 @@ function DeleteAvatar() {
     // Send user name to server
     axios
       .delete(
-        `https://tasksy-bbawuah.herokuapp.com/users/me/avatar`,
+        `https://api.tasksy.work/users/me/avatar`,
           {
           headers: {
             // Verstuur header request met de juiste token!

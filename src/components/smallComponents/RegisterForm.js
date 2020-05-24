@@ -33,8 +33,6 @@ function RegisterForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(process.env.API_ENDPOINT)
-
     
     // Password check
     if (passwordOne !== passwordTwo) {
@@ -50,7 +48,7 @@ function RegisterForm() {
     headers.append("Access-Control-Allow-Credentials", "true");
     // Send user login to server
     axios
-      .post(`https://tasksy-bbawuah.herokuapp.com/users`, {
+      .post(`https://api.tasksy.work/users`, {
         name: name,
         age: age,
         email: email,

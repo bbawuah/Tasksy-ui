@@ -36,7 +36,7 @@ function UpdateName() {
     // Send user name to server
     axios
       .patch(
-        `https://tasksy-bbawuah.herokuapp.com/users/me`,
+        `https://api.tasksy.work/users/me`,
         {
           name: name,
         },

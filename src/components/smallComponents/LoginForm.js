@@ -35,7 +35,7 @@ function LoginForm({ props }) {
     // Post request naar server om in te loggen
     axios
       .post(
-        `https://tasksy-bbawuah.herokuapp.com/users/login`,
+        `https://api.tasksy.work/users/login`,
         {
           email,
           password,

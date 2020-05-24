@@ -23,7 +23,7 @@ function Profile() {
   useEffect(() => {
     (async () => {
       axios
-        .get(`https://tasksy-bbawuah.herokuapp.com/users/me`, {
+        .get(`https://api.tasksy.work/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,

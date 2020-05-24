@@ -18,7 +18,7 @@ export default function Task({
     // console.log(taskID)
 
     axios
-      .delete(`https://tasksy-bbawuah.herokuapp.com/tasks/${taskID}`, {
+      .delete(`https://api.tasksy.work/tasks/${taskID}`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ export default function Task({
   const updateTask = () => {
     axios
       .patch(
-        `https://tasksy-bbawuah.herokuapp.com/tasks/${taskID}`,
+        `https://api.tasksy.work/tasks/${taskID}`,
         {
           completed: true,
         },
@@ -62,7 +62,7 @@ export default function Task({
   const restoreTask = () => {
     axios
       .patch(
-        `${process.env.API_ENDPOINT}/tasks/${taskID}`,
+        `https://api.tasksy.work/tasks/${taskID}`,
         {
           completed: false,
         },
