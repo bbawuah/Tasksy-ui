@@ -15,7 +15,7 @@ export default function Task({
     // console.log(taskID)
 
     axios
-      .delete(`${process.env.API_ENDPOINT}/tasks/${taskID}`, {
+      .delete(`https://tasksy-bbawuah.herokuapp.com/tasks/${taskID}`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export default function Task({
   const updateTask = () => {
     axios
       .patch(
-        `${process.env.API_ENDPOINT}/tasks/${taskID}`,
+        `https://tasksy-bbawuah.herokuapp.com/tasks/${taskID}`,
         {
           completed: true,
         },

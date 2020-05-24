@@ -12,12 +12,15 @@ import { Context } from "../store/Store";
 
 function Profile() {
   const [state, dispatch] = useContext(Context);
-  const token = JSON.parse(localStorage.getItem("tokens"));
+  let token = document.cookie.replace(
+    /(?:(?:^|.*;\s*)access_token\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  ).replace("[", "").replace("]","");
 
   useEffect(() => {
     (async () => {
       axios
-        .get(`${process.env.API_ENDPOINT}/users/me`, {
+        .get(`https://tasksy-bbawuah.herokuapp.com/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,

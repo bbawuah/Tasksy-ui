@@ -31,7 +31,7 @@ function Dashboard() {
 
   const getTasks = () => {
     return axios
-      .get(`${process.env.API_ENDPOINT}/tasks`, {
+      .get(`https://tasksy-bbawuah.herokuapp.com/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,

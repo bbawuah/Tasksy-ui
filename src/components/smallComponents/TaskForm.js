@@ -14,7 +14,7 @@ const Form = ({ callback }) => {
     // Send tasks to server
     axios
       .post(
-        `${process.env.API_ENDPOINT}/tasks`,
+        `https://tasksy-bbawuah.herokuapp.com/tasks`,
         {
           description: description,
           completed: false,

@@ -32,7 +32,7 @@ function LoginForm({ props }) {
     // Post request naar server om in te loggen
     axios
       .post(
-        `${process.env.API_ENDPOINT}/users/login`,
+        `https://tasksy-bbawuah.herokuapp.com/users/login`,
         {
           email,
           password,

@@ -33,7 +33,7 @@ function UpdateName() {
     // Send user name to server
     axios
       .patch(
-        `${process.env.API_ENDPOINT}/users/me`,
+        `https://tasksy-bbawuah.herokuapp.com/users/me`,
         {
           name: name,
         },

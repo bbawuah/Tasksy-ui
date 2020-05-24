@@ -19,8 +19,11 @@ function UpdateAvatar() {
 
   const history = useHistory();
 
-  const token = JSON.parse(localStorage.getItem("tokens"));
-
+  let token = document.cookie.replace(
+    /(?:(?:^|.*;\s*)access_token\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  ).replace("[", "").replace("]","");
+  
   // Submit handler
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,7 +35,7 @@ function UpdateAvatar() {
 
     axios({
       method: "post",
-      url: `${process.env.API_ENDPOINT}/users/me/avatar`,
+      url: `https://tasksy-bbawuah.herokuapp.com/users/me/avatar`,
       data: avatar,
       headers: {
         // Verstuur header request met de juiste token!

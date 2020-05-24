@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import { useHistory } from "react-router-dom";
 
+
 import { Context } from "../../store/Store";
 
 function RegisterForm() {
@@ -32,6 +33,7 @@ function RegisterForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    console.log(process.env.API_ENDPOINT)
 
     
     // Password check
@@ -48,7 +50,7 @@ function RegisterForm() {
     headers.append("Access-Control-Allow-Credentials", "true");
     // Send user login to server
     axios
-      .post(`${process.env.API_ENDPOINT}/users`, {
+      .post(`https://tasksy-bbawuah.herokuapp.com/users`, {
         name: name,
         age: age,
         email: email,

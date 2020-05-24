@@ -15,7 +15,7 @@ function Header() {
 
   function logOut() {
     axios
-      .post(`${process.env.API_ENDPOINT}/users/logout`, {
+      .post(`https://tasksy-bbawuah.herokuapp.com/users/logout`, {
         headers: {
           // Verstuur header request met de juiste token!
           "Content-Type": "application/json",
