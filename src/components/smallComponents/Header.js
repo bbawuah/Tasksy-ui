@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 import { Context } from "../../store/Store";
 
 function Header() {
