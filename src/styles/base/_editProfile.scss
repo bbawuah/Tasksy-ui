@@ -1,0 +1,16 @@
+
+.profile{
+    form{
+        width: calc(100% / 1.5);
+        margin-top: 1.5rem;
+        input{
+            transition: 0.2s ease-out;
+            border: none;
+            border-radius: 3px;
+            margin-left: 0rem;
+            padding: 0.5rem;
+            max-width: 400px;
+            width: 100%;
+        }
+    }
+}

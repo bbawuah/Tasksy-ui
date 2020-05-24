@@ -1,0 +1,31 @@
+.menu-section {
+    height: 100%;
+    width: 275px;
+    border: 1px solid #222;
+    padding: 1rem;
+    border-radius: $border-radius;
+
+    nav {
+      margin: 0.1rem 0;
+      // background-color: $background-color;
+      width: 100%;
+      border-radius: $border-radius;
+      ul {
+        list-style: none;
+        font-size: $font-size;
+        li {
+          padding: 1vmax 0;
+          a{
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px){
+    .menu-section{
+      width: 100%;
+    }
+  }

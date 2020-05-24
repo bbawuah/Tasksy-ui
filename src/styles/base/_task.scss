@@ -1,0 +1,58 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    padding: .5vmax;
+    margin: .5rem 0;
+    font-size: $task-font-size;
+    background-color: #444;
+    border-radius: 5px;
+    .task-text {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      p{
+        font-weight: bolder;
+      }
+      small {
+        font-style: italic;
+        align-self: flex-end;
+        font-size: calc(#{$task-font-size} - 0.2rem);
+      }
+    }
+    .btn-container{
+      display: flex;
+      min-width: 140px;
+
+      button:first-of-type{
+        background-color: #FF5F4A;
+      }
+
+      button{
+        border: none;
+        margin-left: 1rem;
+        font-weight: $button-font-weight;
+        border-radius: $border-radius;
+        padding: 1rem 1rem;
+        height: max-content;
+        cursor: pointer;
+        background-color: $completed-button-background;
+        color: $button-text;
+      }
+
+    }
+        @media screen and (max-width:650px){
+          .task-text{
+            max-width: calc(100% / 2);
+          }
+        }
+
+        @media screen and (max-width: 460px){
+          .btn-container{
+            flex-direction: column;
+            min-width: calc(100% / 3);
+            button:first-of-type{
+              margin-bottom: 1rem;
+            }
+          }
+        }
+  }

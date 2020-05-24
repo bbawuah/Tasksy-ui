@@ -1,0 +1,53 @@
+// DEFAULT STYLING
+
+$background-color: #CBD5E0;
+$border-radius: 5px;
+$text-color: #EDF2F7;
+$button-background: #6C63FF;
+$completed-button-background: #57A7FF;
+$button-text: #f7fafc;
+$button-font-size: 1.875rem;
+$button-font-weight: bolder;
+$font-size: 1.875rem;
+$task-font-size: 1.5rem;
+$subtitle: 2.250rem;
+$welcome-title: 3rem;
+
+@import "./settings";
+@import "./header";
+@import "./landingContainer";
+@import "./footer";
+@import "./login";
+@import "./task";
+@import "./menuSection";
+@import "./taskForm";
+@import "./dashboard";
+@import "./editProfile";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font;
+  background-color: #111;
+  height: 100vh;
+  padding: 0rem 2.5rem;
+  color: $text-color;
+  #app {
+    height: 100%;
+  }
+
+  @media screen and(min-width: 1700px) {
+    #app {
+      max-width: 1700px;
+      margin: 0 auto;
+    }
+  }
+}

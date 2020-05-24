@@ -1,0 +1,46 @@
+.dashboard {
+  form {
+    display: flex;
+    background-color: #222;
+    border-radius: $border-radius;
+    margin: 0.5rem 0;
+
+    label {
+      font-size: $font-size;
+
+      width: 100%;
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      margin: 0.1rem 0;
+      padding: 0.5rem;
+      justify-content: space-between;
+      textarea {
+        transition: 0.2s ease-out;
+        border: none;
+        border-radius: 3px;
+        padding: 0.5rem;
+        width: 400px;
+        margin-left: 0.5rem;
+      }
+
+    }
+    
+    .error-btn{
+      background-color: #FF5F4A;
+    }
+  
+    button {
+      border: none;
+      margin: 0.6rem;
+      font-size: $button-font-size;
+      font-weight: $button-font-weight;
+      min-height: 4rem;
+      border-radius: $border-radius;
+      padding: 0.25rem 1rem;
+      cursor: pointer;
+      background-color: $button-background;
+      color: $button-text;
+    }
+  }
+}
