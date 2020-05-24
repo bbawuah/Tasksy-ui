@@ -3,6 +3,9 @@ import axios from "axios";
 import { useAuth } from "../../context/auth";
 import { useHistory } from "react-router-dom";
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 import { Context } from "../../store/Store";
 
 function RegisterForm() {
