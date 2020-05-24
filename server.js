@@ -2,9 +2,7 @@ const dotenv = require('dotenv').config()
 const express = require("express");
 const app = express();
 const path = require("path");
-const dotenv = require('dotenv');
 
-dotenv.config()
 
 const publicPath = path.join(__dirname, 'public')
 console.log(process.env.PORT)
