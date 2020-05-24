@@ -4,8 +4,6 @@ import { useAuth } from "../../context/auth";
 import { useHistory } from "react-router-dom";
 // Ik importeer useHistory inplaats van Redirect want dit werkt voor mij
 
-import dotenv from 'dotenv'
-dotenv.config()
 
 import { Context } from "../../store/Store";
 

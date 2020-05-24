@@ -1,8 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 
 import Task from "./smallComponents/Task";

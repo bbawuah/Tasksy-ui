@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 
-import dotenv from 'dotenv'
-dotenv.config()
 
 export default function Task({
   description,

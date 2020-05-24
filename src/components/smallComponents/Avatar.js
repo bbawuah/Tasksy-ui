@@ -3,9 +3,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-import dotenv from 'dotenv'
-dotenv.config()
-
 import { Context } from "../../store/Store";
 function UpdateAvatar() {
   // State voor evt error bij foute password

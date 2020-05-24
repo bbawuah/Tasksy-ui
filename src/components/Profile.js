@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
-import dotenv from 'dotenv'
-dotenv.config()
 
 import Menu from "./smallComponents/Menu";
 import Footer from "./smallComponents/Footer";

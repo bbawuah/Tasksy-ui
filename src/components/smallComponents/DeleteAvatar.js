@@ -3,9 +3,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-import dotenv from 'dotenv'
-dotenv.config()
-
 function DeleteAvatar() {
   // State voor evt error bij foute password
   const [isError, setIsError] = useState(false);
