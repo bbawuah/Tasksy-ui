@@ -48,7 +48,7 @@ function RegisterForm() {
     headers.append("Access-Control-Allow-Credentials", "true");
     // Send user login to server
     axios
-      .post(`http://api.tasksy.work/users`, {
+      .post(`https://api.tasksy.work/users`, {
         name: name,
         age: age,
         email: email,

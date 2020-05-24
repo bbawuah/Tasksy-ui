@@ -15,7 +15,7 @@ const Form = ({ callback }) => {
     // Send tasks to server
     axios
       .post(
-        `http://api.tasksy.work/tasks`,
+        `https://api.tasksy.work/tasks`,
         {
           description: description,
           completed: false,

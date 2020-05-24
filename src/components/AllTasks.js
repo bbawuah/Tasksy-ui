@@ -12,7 +12,7 @@ function AllTasks() {
 
   const getTasks = () => {
     return axios
-      .get(`http://api.tasksy.work/tasks`, {
+      .get(`https://api.tasksy.work/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
 
@@ -25,7 +25,7 @@ function AllTasks() {
 
   useEffect(() => {
     axios
-      .get(`http://api.tasksy.work/users/me`, {
+      .get(`https://api.tasksy.work/users/me`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,

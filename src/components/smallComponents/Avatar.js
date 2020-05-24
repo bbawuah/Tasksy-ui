@@ -35,7 +35,7 @@ function UpdateAvatar() {
 
     axios({
       method: "post",
-      url: `http://api.tasksy.work/users/me/avatar`,
+      url: `https://api.tasksy.work/users/me/avatar`,
       data: avatar,
       headers: {
         // Verstuur header request met de juiste token!

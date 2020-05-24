@@ -21,7 +21,7 @@ function Profile() {
   useEffect(() => {
     (async () => {
       axios
-        .get(`http://api.tasksy.work/users/me`, {
+        .get(`https://api.tasksy.work/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,
