@@ -33,7 +33,7 @@ function UpdateName() {
     // Send user name to server
     axios
       .patch(
-        "http://localhost:8000/users/me",
+        `${process.env.API_ENDPOINT}/users/me`,
         {
           name: name,
         },

@@ -14,7 +14,7 @@ const Form = ({ callback }) => {
     // Send tasks to server
     axios
       .post(
-        "http://localhost:8000/tasks",
+        `${process.env.API_ENDPOINT}/tasks`,
         {
           description: description,
           completed: false,

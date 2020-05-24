@@ -12,7 +12,7 @@ function AllTasks() {
 
   const getTasks = () => {
     return axios
-      .get("http://localhost:8000/tasks", {
+      .get(`${process.env.API_ENDPOINT}/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
 
@@ -25,7 +25,7 @@ function AllTasks() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/users/me", {
+      .get(`${process.env.API_ENDPOINT}/users/me`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,

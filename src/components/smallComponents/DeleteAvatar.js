@@ -26,7 +26,7 @@ function DeleteAvatar() {
     // Send user name to server
     axios
       .delete(
-        "http://localhost:8000/users/me/avatar",
+        `${process.env.API_ENDPOINT}/users/me/avatar`,
           {
           headers: {
             // Verstuur header request met de juiste token!

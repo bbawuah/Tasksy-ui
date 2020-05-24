@@ -31,7 +31,7 @@ function Dashboard() {
 
   const getTasks = () => {
     return axios
-      .get("http://localhost:8000/tasks", {
+      .get(`${process.env.API_ENDPOINT}/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ function Dashboard() {
     // Omdat ik eerst de data van de user wil hebben.
     (async () => {
       await axios
-        .get("http://localhost:8000/users/me", {
+        .get(`${process.env.API_ENDPOINT}/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ function Dashboard() {
           state.user.name ? state.user.name : "..."
         }!`}</h1>
         <img
-          src={`${`http://localhost:8000/users/${state.user._id}/avatar`}`}
+          src={`${`${process.env.API_ENDPOINT}/users/${state.user._id}/avatar`}`}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/assets/profile.svg";

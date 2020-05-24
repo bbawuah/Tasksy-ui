@@ -48,7 +48,7 @@ function RegisterForm() {
     headers.append("Access-Control-Allow-Credentials", "true");
     // Send user login to server
     axios
-      .post("http://localhost:8000/users", {
+      .post(`${process.env.API_ENDPOINT}/users`, {
         name: name,
         age: age,
         email: email,

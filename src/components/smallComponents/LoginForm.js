@@ -32,7 +32,7 @@ function LoginForm({ props }) {
     // Post request naar server om in te loggen
     axios
       .post(
-        "http://localhost:8000/users/login",
+        `${process.env.API_ENDPOINT}/users/login`,
         {
           email,
           password,

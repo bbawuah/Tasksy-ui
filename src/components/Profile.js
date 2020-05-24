@@ -17,7 +17,7 @@ function Profile() {
   useEffect(() => {
     (async () => {
       axios
-        .get("http://localhost:8000/users/me", {
+        .get(`${process.env.API_ENDPOINT}/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,

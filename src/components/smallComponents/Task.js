@@ -15,7 +15,7 @@ export default function Task({
     // console.log(taskID)
 
     axios
-      .delete(`http://localhost:8000/tasks/${taskID}`, {
+      .delete(`${process.env.API_ENDPOINT}/tasks/${taskID}`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export default function Task({
   const updateTask = () => {
     axios
       .patch(
-        `http://localhost:8000/tasks/${taskID}`,
+        `${process.env.API_ENDPOINT}/tasks/${taskID}`,
         {
           completed: true,
         },
@@ -59,7 +59,7 @@ export default function Task({
   const restoreTask = () => {
     axios
       .patch(
-        `http://localhost:8000/tasks/${taskID}`,
+        `${process.env.API_ENDPOINT}/tasks/${taskID}`,
         {
           completed: false,
         },

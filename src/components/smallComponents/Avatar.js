@@ -32,7 +32,7 @@ function UpdateAvatar() {
 
     axios({
       method: "post",
-      url: "http://localhost:8000/users/me/avatar",
+      url: `${process.env.API_ENDPOINT}/users/me/avatar`,
       data: avatar,
       headers: {
         // Verstuur header request met de juiste token!

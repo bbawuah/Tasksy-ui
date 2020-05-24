@@ -15,7 +15,7 @@ function Header() {
 
   function logOut() {
     axios
-      .post("http://localhost:8000/users/logout", {
+      .post(`${process.env.API_ENDPOINT}/users/logout`, {
         headers: {
           // Verstuur header request met de juiste token!
           "Content-Type": "application/json",
