@@ -1,6 +1,14 @@
 {
     "presets": [
-        "env",
+        ["env",{
+            "targets": {
+                "ie": "11",
+                "edge": "15",
+                "safari": "10",
+                "firefox": "50",
+                "chrome": "49"
+              }
+        }],
         "react"
     ],
     "plugins": [
