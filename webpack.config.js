@@ -1,5 +1,6 @@
 const path = require('path');
-
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 module.exports = (env) => {
 
@@ -9,6 +10,14 @@ module.exports = (env) => {
       filename: 'bundle.js',
       path: path.join(__dirname, '/public'),
     },
+    plugins: [
+
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        }
+      })
+    ],
     module: {
       rules: [
         {
@@ -22,6 +31,7 @@ module.exports = (env) => {
         },
       ],
     },
+    
   
     devServer: {
       contentBase: path.join(__dirname, 'public'),
