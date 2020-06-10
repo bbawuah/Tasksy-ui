@@ -31,7 +31,7 @@ function Dashboard() {
 
   const getTasks = () => {
     return axios
-      .get(`https://api.tasksy.work/tasks`, {
+      .get(`http://api.tasksy.com:8000/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ function Dashboard() {
     // Omdat ik eerst de data van de user wil hebben.
     (async () => {
       await axios
-        .get(`https://api.tasksy.work/users/me`, {
+        .get(`http://api.tasksy.com:8000/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ function Dashboard() {
           state.user.name ? state.user.name : "..."
         }!`}</h1>
         <img
-          src={`${`https://api.tasksy.work/users/${state.user._id}/avatar`}`}
+          src={`${`http://:8000/users/${state.user._id}/avatar`}`}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/assets/profile.svg";

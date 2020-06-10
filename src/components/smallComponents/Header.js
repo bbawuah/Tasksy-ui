@@ -15,7 +15,7 @@ function Header() {
 
   function logOut() {
     axios
-      .post(`https://api.tasksy.work/users/logout`, {
+      .post(`http://api.tasksy.com:8000/users/logout`, {
         headers: {
           // Verstuur header request met de juiste token!
           "Content-Type": "application/json",
