@@ -1,33 +1,31 @@
 import React, { Fragment, useEffect } from "react";
-import swal from "sweetalert"
+import swal from "sweetalert";
 
 import LoginForm from "./smallComponents/LoginForm";
 import RegisterForm from "./smallComponents/RegisterForm";
 import Footer from "./smallComponents/Footer";
 
+const CookieAlert = () =>
+  swal(
+    "Cookies",
+    "this application uses cookies to improve your experience",
+    "info"
+  );
 
-const CookieAlert = () => swal("Cookies", "this application uses cookies to improve your experience", "info");
-
- 
-
-
-
-const login = (props) => {
+const login = () => {
   useEffect(() => {
     (async () => {
-
-      await CookieAlert()
-    })()
-  }, [])
+      await CookieAlert();
+    })();
+  }, []);
   return (
     <div className="login">
-    
       <section>
         <h2 className="welcome-title">First, we need some information</h2>
         <p>Login or register your account</p>
       </section>
       <div className="form-container">
-        <LoginForm props={props} />
+        <LoginForm />
         <RegisterForm />
       </div>
       <Footer />

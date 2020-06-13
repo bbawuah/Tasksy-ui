@@ -6,12 +6,13 @@ $text-color: #EDF2F7;
 $button-background: #6C63FF;
 $completed-button-background: #57A7FF;
 $button-text: #f7fafc;
-$button-font-size: 1.875rem;
+$button-font-size: 1.375rem;
 $button-font-weight: bolder;
-$font-size: 1.875rem;
-$task-font-size: 1.5rem;
+$font-size: 1.375rem;
+$task-font-size: 1.375rem;
 $subtitle: 2.250rem;
 $welcome-title: 3rem;
+$input-margin-top: .5rem;
 
 @import "./settings";
 @import "./header";

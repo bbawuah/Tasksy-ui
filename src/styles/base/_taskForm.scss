@@ -11,7 +11,7 @@
       width: 100%;
       display: flex;
       font-weight: 500;
-      align-items: center;
+      align-items: start;
       margin: 0.1rem 0;
       padding: 0.5rem;
       justify-content: space-between;
@@ -21,6 +21,7 @@
         border-radius: 3px;
         padding: 0.5rem;
         width: 400px;
+        margin-top: $input-margin-top;
         margin-left: 0.5rem;
       }
 
@@ -37,6 +38,7 @@
       font-weight: $button-font-weight;
       min-height: 4rem;
       border-radius: $border-radius;
+      align-self: stretch;
       padding: 0.25rem 1rem;
       cursor: pointer;
       background-color: $button-background;
