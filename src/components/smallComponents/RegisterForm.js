@@ -1,16 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
+import { useTransition, useSpring, useChain, config } from "react-spring";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
 import { useHistory } from "react-router-dom";
 
+import { Container } from "../../styles/styled-components/styles";
 
 import { Context } from "../../store/Store";
 
-function RegisterForm() {
+function RegisterForm({bool}) {
   // State voor evt error bij foute password
   const [isError, setIsError] = useState(false);
   // State om te checken of gebruiker is ingelogd
   const [ingelogd, setIngelogd] = useState(false);
+
+  const [open, set] = useState(false);
 
   // State voor form gegevens
   const [email, setEmail] = useState("");
@@ -33,30 +37,29 @@ function RegisterForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    
     // Password check
     if (passwordOne !== passwordTwo) {
       setIsError(true);
       return setDisplayErr("Password does not match");
     }
-    
+
     let headers = new Headers();
-    headers.append(
-      "credentials",
-      "include"
-    );
+    headers.append("credentials", "include");
     headers.append("Access-Control-Allow-Credentials", "true");
     // Send user login to server
     axios
-      .post(`http://api.tasksy.com:8000/users`, {
-        name: name,
-        age: age,
-        email: email,
-        password: passwordOne,
-      },
-      {
-        headers: headers,
-      })
+      .post(
+        `http://api.tasksy.com:8000/users`,
+        {
+          name: name,
+          age: age,
+          email: email,
+          password: passwordOne,
+        },
+        {
+          headers: headers,
+        }
+      )
       .then((res) => {
         if (res.status === 201) {
           // Zet dan de authTokens naar de res.data.token
@@ -101,60 +104,100 @@ function RegisterForm() {
       */
   }
 
+  const component = "Login";
+
+  const springRef = useRef();
+
+  const { size, opacity, ...rest } = useSpring({
+    ref: springRef,
+    config: config.stiff,
+    from: { size: "20%", background: "#6C63FF" },
+    to: {
+      size: bool ? "100%" : "20%",
+      background: bool ? "rgba(0,0,0,0.0)" : "#6C63FF",
+    },
+  });
+
+  const transRef = useRef();
+  const transitions = useTransition(
+    bool ? component : [],
+    (item) => item.name,
+    {
+      ref: transRef,
+      unique: true,
+      trail: 100,
+      from: { opacity: 0, transform: "scale(0)" },
+      enter: { opacity: 1, transform: "scale(1)" },
+      leave: { opacity: 0, transform: "scale(0)" },
+    }
+  );
+
+  useChain(bool ? [springRef, transRef] : [transRef, springRef], [
+    0,
+    bool ? 0.1 : 0.6,
+  ]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Register</h3>
-      <label>
-        Name
-        <input
-          required={true}
-          name="name"
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-      </label>
+    <Container
+      style={{ ...rest, width: size }}
+    >
+      {transitions.map(({ key, props }) => (
+        <form onSubmit={handleSubmit}
+        key={key} style={{ ...props }}
+        >
+          <label>
+            Name
+            <input
+              required={true}
+              name="name"
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+            ></input>
+          </label>
 
-      <label>
-        Age
-        <input
-          name="age"
-          type="number"
-          onChange={(e) => setAge(e.target.value)}
-        ></input>
-      </label>
+          <label>
+            Age
+            <input
+              name="age"
+              type="number"
+              onChange={(e) => setAge(e.target.value)}
+            ></input>
+          </label>
 
-      <label>
-        Email
-        <input
-          required={true}
-          name="email"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-      </label>
+          <label>
+            Email
+            <input
+              required={true}
+              name="email"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+          </label>
 
-      <label>
-        Password
-        <input
-          required={true}
-          name="password-one"
-          type="password"
-          onChange={(e) => setPasswordOne(e.target.value)}
-        ></input>
-      </label>
+          <label>
+            Password
+            <input
+              required={true}
+              name="password-one"
+              type="password"
+              onChange={(e) => setPasswordOne(e.target.value)}
+            ></input>
+          </label>
 
-      <label>
-        Password
-        <input
-          required={true}
-          name="password-two"
-          type="password"
-          onChange={(e) => setPasswordTwo(e.target.value)}
-        ></input>
-      </label>
-      <button type="submit">Register</button>
-      {isError && <p className="error">{displayErr}</p>}
-    </form>
+          <label>
+            Password
+            <input
+              required={true}
+              name="password-two"
+              type="password"
+              onChange={(e) => setPasswordTwo(e.target.value)}
+            ></input>
+          </label>
+          <button type="submit">Register</button>
+          {isError && <p className="error">{displayErr}</p>}
+        </form>
+      ))}
+    </Container>
   );
 }
 
