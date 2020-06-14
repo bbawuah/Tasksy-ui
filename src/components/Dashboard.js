@@ -31,7 +31,7 @@ function Dashboard() {
 
   const getTasks = () => {
     return axios
-      .get(`http://api.tasksy.com:8000/tasks`, {
+      .get(`https://api.tasksy.work/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
