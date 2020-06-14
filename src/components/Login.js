@@ -1,34 +1,79 @@
-import React, { Fragment, useEffect } from "react";
-import swal from "sweetalert"
+import React, { Fragment, useEffect, useState, useRef } from "react";
+import swal from "sweetalert";
 
 import LoginForm from "./smallComponents/LoginForm";
 import RegisterForm from "./smallComponents/RegisterForm";
 import Footer from "./smallComponents/Footer";
 
+const CookieAlert = () =>
+  swal(
+    "Cookies",
+    "this application uses cookies to improve your experience",
+    "info"
+  );
 
-const CookieAlert = () => swal("Cookies", "this application uses cookies to improve your experience", "info");
+const login = () => {
+  const didUpdateRef = useRef(false);
+  
+  const [loginBool, setLoginBool] = useState(false);
+  const [registerBool, setRegisterBool] = useState(false);
+  ("");
 
- 
+  const [registerDisplay, setRegisterDisplay] = useState("Register");
+  const [loginDisplay, setLoginDisplay] = useState("Login");
 
-
-
-const login = (props) => {
   useEffect(() => {
     (async () => {
+      await CookieAlert();
+    })();
+  }, []);
 
-      await CookieAlert()
-    })()
-  }, [])
+  useEffect(() => {
+    if (didUpdateRef.current) {
+      if (!loginBool) {
+        setTimeout(() => {
+          setRegisterDisplay("");
+          setLoginDisplay("Login");
+        }, 1000);
+      }
+
+      if (!registerBool) {
+        setTimeout(() => {
+          setLoginDisplay("");
+          setRegisterDisplay("Register");
+        }, 1000);
+      }
+    } else didUpdateRef.current = true;
+  });
+
   return (
     <div className="login">
-    
       <section>
         <h2 className="welcome-title">First, we need some information</h2>
         <p>Login or register your account</p>
       </section>
       <div className="form-container">
-        <LoginForm props={props} />
-        <RegisterForm />
+        <div
+          className="button-wrapper"
+          onClick={() => {
+            setLoginBool(() => true);
+            setRegisterBool(() => false);
+          }}
+        >
+          {!loginBool && <h3>{loginDisplay}</h3>}
+          <LoginForm bool={loginBool} />
+        </div>
+
+        <div
+          className="button-wrapper"
+          onClick={() => {
+            setLoginBool(() => false);
+            setRegisterBool(() => true);
+          }}
+        >
+          {!registerBool && <h3>{registerDisplay}</h3>}
+          <RegisterForm bool={registerBool} />
+        </div>
       </div>
       <Footer />
     </div>

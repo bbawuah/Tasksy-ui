@@ -1,13 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
+import { useTransition, useSpring, useChain, config } from "react-spring";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
 import { useHistory } from "react-router-dom";
 // Ik importeer useHistory inplaats van Redirect want dit werkt voor mij
 
+import { Container } from "../../styles/styled-components/styles";
 
 import { Context } from "../../store/Store";
 
-function LoginForm({ props }) {
+function LoginForm({ bool }) {
   const [isError, setIsError] = useState(false); //State does not change
   const [ingelogd, setIngelogd] = useState(false); //State does not change
   const [email, setEmail] = useState("");
@@ -16,7 +18,9 @@ function LoginForm({ props }) {
   const [displayErr, setDisplayErr] = useState("");
   const history = useHistory();
   const [state, dispatch] = useContext(Context);
+  
 
+  const [open, set] = useState(false);
 
 
   // Submit handler
@@ -84,9 +88,50 @@ function LoginForm({ props }) {
       });
   }
 
+  const component = "Login";
+
+  const springRef = useRef();
+
+  const { size, opacity, ...rest } = useSpring({
+    ref: springRef,
+    config: config.stiff,
+    from: { size: "50%", background: "#6C63FF", cursor:"pointer" },
+    to: {
+      size: bool ? "100%" : "50%",
+      background: bool ? "rgba(0,0,0,0.0)" : "#6C63FF",
+      cursor: bool ? "default" : "pointer"
+    },
+  });
+
+  const transRef = useRef();
+  const transitions = useTransition(
+    bool ? component : [],
+    (item) => item.name,
+    {
+      ref: transRef,
+      unique: true,
+      trail: 100,
+      from: { opacity: 0, transform: "scale(0)" },
+      enter: { opacity: 1, transform: "scale(1)" },
+      leave: { opacity: 0, transform: "scale(0)" },
+    }
+  );
+
+  useChain(bool ? [springRef, transRef] : [transRef, springRef], [
+    0,
+    bool ? 0.1 : 0.6,
+  ]);
+
   return (
-    <form onSubmit={postLogin}>
-      <h3>Login</h3>
+
+    <Container
+    style={{ ...rest, width: size }}
+  >
+    {transitions.map(({ key, props }) => (
+    <form onSubmit={postLogin}
+    key={key} style={{ ...props }}
+    >
+
       <label>
         Email
         <input
@@ -110,6 +155,8 @@ function LoginForm({ props }) {
       <button type="submit">Login</button>
       {isError && <p className="error">{displayErr}</p>}
     </form>
+      ))}
+      </Container>
   );
 }
 

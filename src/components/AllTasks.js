@@ -12,7 +12,7 @@ function AllTasks() {
 
   const getTasks = () => {
     return axios
-      .get(`https://api.tasksy.work/tasks`, {
+      .get(`http://api.tasksy.com:8000/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
 
