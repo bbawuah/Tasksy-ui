@@ -37,7 +37,7 @@ function LoginForm({ bool }) {
     // Post request naar server om in te loggen
     axios
       .post(
-        `http://api.tasksy.com:8000/users/login`,
+        `https://api.tasksy.work/users/login`,
         {
           email,
           password,

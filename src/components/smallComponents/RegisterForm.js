@@ -49,7 +49,7 @@ function RegisterForm({bool}) {
     // Send user login to server
     axios
       .post(
-        `http://api.tasksy.com:8000/users`,
+        `https://api.tasksy.work/users`,
         {
           name: name,
           age: age,

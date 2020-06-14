@@ -46,7 +46,7 @@ function Dashboard() {
     // Omdat ik eerst de data van de user wil hebben.
     (async () => {
       await axios
-        .get(`http://api.tasksy.com:8000/users/me`, {
+        .get(`https://api.tasksy.work/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,
