@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useRef } from "react";
 import swal from "sweetalert";
 
 import LoginForm from "./smallComponents/LoginForm";
@@ -13,14 +13,38 @@ const CookieAlert = () =>
   );
 
 const login = () => {
+  const didUpdateRef = useRef(false);
+  
   const [loginBool, setLoginBool] = useState(false);
   const [registerBool, setRegisterBool] = useState(false);
+  ("");
+
+  const [registerDisplay, setRegisterDisplay] = useState("Register");
+  const [loginDisplay, setLoginDisplay] = useState("Login");
 
   useEffect(() => {
     (async () => {
       await CookieAlert();
     })();
   }, []);
+
+  useEffect(() => {
+    if (didUpdateRef.current) {
+      if (!loginBool) {
+        setTimeout(() => {
+          setRegisterDisplay("");
+          setLoginDisplay("Login");
+        }, 1000);
+      }
+
+      if (!registerBool) {
+        setTimeout(() => {
+          setLoginDisplay("");
+          setRegisterDisplay("Register");
+        }, 1000);
+      }
+    } else didUpdateRef.current = true;
+  });
 
   return (
     <div className="login">
@@ -36,7 +60,7 @@ const login = () => {
             setRegisterBool(() => false);
           }}
         >
-          {!loginBool && <h3>Login</h3>}
+          {!loginBool && <h3>{loginDisplay}</h3>}
           <LoginForm bool={loginBool} />
         </div>
 
@@ -47,7 +71,7 @@ const login = () => {
             setRegisterBool(() => true);
           }}
         >
-          {!registerBool && <h3>Register</h3>}
+          {!registerBool && <h3>{registerDisplay}</h3>}
           <RegisterForm bool={registerBool} />
         </div>
       </div>

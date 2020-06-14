@@ -111,10 +111,11 @@ function RegisterForm({bool}) {
   const { size, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
-    from: { size: "20%", background: "#6C63FF" },
+    from: { size: "50%", background: "#6C63FF", cursor:"pointer" },
     to: {
-      size: bool ? "100%" : "20%",
+      size: bool ? "100%" : "50%",
       background: bool ? "rgba(0,0,0,0.0)" : "#6C63FF",
+      cursor: bool ? "default" : "pointer"
     },
   });
 
