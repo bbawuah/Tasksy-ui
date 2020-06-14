@@ -75,7 +75,7 @@ function Dashboard() {
           state.user.name ? state.user.name : "..."
         }!`}</h1>
         <img
-          src={`${`http://:8000/users/${state.user._id}/avatar`}`}
+          src={`${`https://api.tasksy.work/users/${state.user._id}/avatar`}`}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/assets/profile.svg";
