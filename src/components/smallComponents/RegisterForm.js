@@ -9,7 +9,7 @@ import { Container } from "../../styles/styled-components/styles";
 import { Context } from "../../store/Store";
 
 function RegisterForm({bool}) {
-  // State voor evt error bij foute password
+  // State voor eventuele error bij foute password
   const [isError, setIsError] = useState(false);
   // State om te checken of gebruiker is ingelogd
   const [ingelogd, setIngelogd] = useState(false);
