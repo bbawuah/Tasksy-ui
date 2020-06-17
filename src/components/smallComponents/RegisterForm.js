@@ -11,7 +11,7 @@ import { Context } from "../../store/Store";
 function RegisterForm({bool}) {
   // State voor eventuele error bij foute password
   const [isError, setIsError] = useState(false);
-  // State om te checken of gebruiker is ingelogd
+  // State om te checken of gebruiker is ingelogdd
   const [ingelogd, setIngelogd] = useState(false);
 
   const [open, set] = useState(false);
