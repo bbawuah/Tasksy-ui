@@ -13,7 +13,7 @@ import Store from "./store/Store";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
-import Header from "./components/smallComponents/Header";
+import Header from "./components/smallComponents/partials/Header";
 import Dashboard from "./components/Dashboard";
 import Profile from "./components/Profile";
 import AllTasks from "./components/AllTasks";

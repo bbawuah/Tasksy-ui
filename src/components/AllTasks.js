@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
-import Menu from "./smallComponents/Menu";
-import Footer from "./smallComponents/Footer";
-import Task from "./smallComponents/Task";
+import Menu from "./smallComponents/partials/Menu";
+import Footer from "./smallComponents/partials/Footer";
+import Task from "./smallComponents/tasks/Task";
 import { Context } from "../store/Store";
 
 function AllTasks() {
@@ -12,7 +12,7 @@ function AllTasks() {
 
   const getTasks = () => {
     return axios
-      .get(`https://api.tasksy.work/tasks`, {
+      .get(`${process.env.API_URL}/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
 
@@ -25,7 +25,7 @@ function AllTasks() {
 
   useEffect(() => {
     axios
-      .get(`https://api.tasksy.work/users/me`, {
+      .get(`${process.env.API_URL}/users/me`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,

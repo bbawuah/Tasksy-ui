@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NextTaskSVG from "./NextTaskSVG";
-import Trail from "../animations/TrailAnimation";
+import Trail from "../../animations/TrailAnimation";
 
 const Landing = () => {
   return (

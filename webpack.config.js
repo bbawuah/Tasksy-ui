@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const dotenv = require("dotenv");
+const dotenv = require("dotenv-webpack");
 
 module.exports = (env) => {
   return {
@@ -10,11 +10,9 @@ module.exports = (env) => {
       path: path.join(__dirname, "/public"),
     },
     plugins: [
-      new webpack.DefinePlugin({
-        "process.env": {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        },
-      }),
+      new dotenv({
+        path: 'config/.env'
+      })
     ],
     module: {
       rules: [
@@ -34,7 +32,7 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, "public"),
       historyApiFallback: true,
       compress: true,
-      disableHostCheck: true, // That solved it
+      host: 'ui.tasksy.com'
     },
   };
 };

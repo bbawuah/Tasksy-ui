@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 
-import Menu from "./smallComponents/Menu";
-import Footer from "./smallComponents/Footer";
-import UpdateName from "./smallComponents/UpdateUser";
-import UpdateAvatar from "./smallComponents/Avatar";
-import DeleteAvatar from "./smallComponents/DeleteAvatar";
-import DeleteUser from "./smallComponents/DeleteUser"
+import Menu from "./smallComponents/partials/Menu";
+import Footer from "./smallComponents/partials/Footer";
+import UpdateName from "./smallComponents/profile/UpdateUser";
+import UpdateAvatar from "./smallComponents/profile/Avatar";
+import DeleteAvatar from "./smallComponents/profile/DeleteAvatar";
+import DeleteUser from "./smallComponents/profile/DeleteUser"
 
 import { Context } from "../store/Store";
 
@@ -21,7 +21,7 @@ function Profile() {
   useEffect(() => {
     (async () => {
       axios
-        .get(`https://api.tasksy.work/users/me`, {
+        .get(`${process.env.API_URL}/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,

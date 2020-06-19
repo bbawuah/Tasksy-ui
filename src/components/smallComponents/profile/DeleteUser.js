@@ -3,12 +3,18 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-function DeleteAvatar() {
+import { Context } from "../../../store/Store";
+
+
+function DeleteUser() {
   // State voor evt error bij foute password
   const [isError, setIsError] = useState(false);
 
   // Displayen van evt error
   const [displayErr, setDisplayErr] = useState("");
+
+
+  const [state, dispatch] = useContext(Context);
 
   // token
   let token = document.cookie.replace(
@@ -24,22 +30,25 @@ function DeleteAvatar() {
 
     // Send user name to server
     axios
-      .delete(
-        `https://api.tasksy.work/users/me/avatar`,
-          {
-          headers: {
-            // Verstuur header request met de juiste token!
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .delete(`${process.env.API_URL}/users/me`, {
+        headers: {
+          // Verstuur header request met de juiste token!
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         if (res.status === 200) {
-          swal("Deleted!", "No face, no case..", "success");
+          swal(
+            "Thanks for using Tasksy!",
+            "Friends never say goodbye.",
+            "success"
+          );
 
+        dispatch({ type: "SET_USER", payload: "" });
           // console.log(res.data);
+          localStorage.removeItem("tokens");
 
-          history.push("/dashboard");
+          history.push("/");
         }
       })
       .catch((err) => {
@@ -62,11 +71,13 @@ function DeleteAvatar() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Delete avatar</label>
-      <button type="submit" className="error-btn">Delete</button>
+      <label>Delete user</label>
+      <button type="submit" className="error-btn">
+        Delete
+      </button>
       {isError && <p className="error">{displayErr}</p>}
     </form>
   );
 }
 
-export default DeleteAvatar;
+export default DeleteUser;

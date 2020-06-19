@@ -1,13 +1,13 @@
 import React, { useState, useContext, useRef } from "react";
 import { useTransition, useSpring, useChain, config } from "react-spring";
 import axios from "axios";
-import { useAuth } from "../../context/auth";
+import { useAuth } from "../../../context/auth";
 import { useHistory } from "react-router-dom";
 // Ik importeer useHistory inplaats van Redirect want dit werkt voor mij
 
-import { Container } from "../../styles/styled-components/styles";
+import { Container } from "../../../styles/styled-components/styles";
 
-import { Context } from "../../store/Store";
+import { Context } from "../../../store/Store";
 
 function LoginForm({ bool }) {
   const [isError, setIsError] = useState(false); //State does not change
@@ -37,7 +37,7 @@ function LoginForm({ bool }) {
     // Post request naar server om in te loggen
     axios
       .post(
-        `https://api.tasksy.work/users/login`,
+        `${process.env.API_URL}/users/login`,
         {
           email,
           password,

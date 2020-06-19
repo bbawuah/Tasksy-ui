@@ -1,12 +1,12 @@
 import React, { useState, useContext, useRef } from "react";
 import { useTransition, useSpring, useChain, config } from "react-spring";
 import axios from "axios";
-import { useAuth } from "../../context/auth";
+import { useAuth } from "../../../context/auth";
 import { useHistory } from "react-router-dom";
 
-import { Container } from "../../styles/styled-components/styles";
+import { Container } from "../../../styles/styled-components/styles";
 
-import { Context } from "../../store/Store";
+import { Context } from "../../../store/Store";
 
 function RegisterForm({bool}) {
   // State voor eventuele error bij foute password
@@ -49,7 +49,7 @@ function RegisterForm({bool}) {
     // Send user login to server
     axios
       .post(
-        `https://api.tasksy.work/users`,
+        `${process.env.API_URL}/users`,
         {
           name: name,
           age: age,

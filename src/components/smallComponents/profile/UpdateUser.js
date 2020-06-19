@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
 
-import { Context } from "../../store/Store";
+import { Context } from "../../../store/Store";
 
 function UpdateName() {
   // State voor evt error bij foute password
@@ -34,7 +34,7 @@ function UpdateName() {
     // Send user name to server
     axios
       .patch(
-        `https://api.tasksy.work/users/me`,
+        `${process.env.API_URL}/users/me`,
         {
           name: name,
         },

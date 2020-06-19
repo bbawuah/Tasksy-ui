@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-import { Context } from "../../store/Store";
+import { Context } from "../../../store/Store";
 function UpdateAvatar() {
   // State voor evt error bij foute password
   const [isError, setIsError] = useState(false);
@@ -35,7 +35,7 @@ function UpdateAvatar() {
 
     axios({
       method: "post",
-      url: `https://api.tasksy.work/users/me/avatar`,
+      url: `${process.env.API_URL}/users/me/avatar`,
       data: avatar,
       headers: {
         // Verstuur header request met de juiste token!
