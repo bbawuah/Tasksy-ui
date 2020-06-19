@@ -1,5 +1,5 @@
-import { animated } from "react-spring";
-import styled, { createGlobalStyle } from "styled-components";
+import { animated } from 'react-spring';
+import styled from 'styled-components';
 
 const Container = styled(animated.div)`
   position: relative;

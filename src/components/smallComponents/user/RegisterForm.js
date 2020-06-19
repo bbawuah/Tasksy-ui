@@ -104,7 +104,6 @@ function RegisterForm({bool}) {
       */
   }
 
-  const component = "Login";
 
   const springRef = useRef();
 
@@ -121,7 +120,7 @@ function RegisterForm({bool}) {
 
   const transRef = useRef();
   const transitions = useTransition(
-    bool ? component : [],
+    bool ? '' : [],
     (item) => item.name,
     {
       ref: transRef,
