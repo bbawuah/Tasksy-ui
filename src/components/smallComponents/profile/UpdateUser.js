@@ -3,9 +3,18 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-function DeleteAvatar() {
+
+import { Context } from "../../../store/Store";
+
+function UpdateName() {
   // State voor evt error bij foute password
   const [isError, setIsError] = useState(false);
+
+  // Data versturen naar global state
+  const [state, dispatch] = useContext(Context);
+
+  // State voor form gegevens
+  const [name, setName] = useState(state.user.name);
 
   // Displayen van evt error
   const [displayErr, setDisplayErr] = useState("");
@@ -24,9 +33,12 @@ function DeleteAvatar() {
 
     // Send user name to server
     axios
-      .delete(
-        `https://api.tasksy.work/users/me/avatar`,
-          {
+      .patch(
+        `${process.env.API_URL}/users/me`,
+        {
+          name: name,
+        },
+        {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,
@@ -35,7 +47,7 @@ function DeleteAvatar() {
       )
       .then((res) => {
         if (res.status === 200) {
-          swal("Deleted!", "No face, no case..", "success");
+          swal("Succeeded!", "We saved your name!", "success");
 
           // console.log(res.data);
 
@@ -62,11 +74,19 @@ function DeleteAvatar() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Delete avatar</label>
-      <button type="submit" className="error-btn">Delete</button>
+      <label>
+        Name
+        <input
+          required={true}
+          name="name"
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+      </label>
+      <button type="submit">Save</button>
       {isError && <p className="error">{displayErr}</p>}
     </form>
   );
 }
 
-export default DeleteAvatar;
+export default UpdateName;

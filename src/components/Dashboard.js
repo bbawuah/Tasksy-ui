@@ -2,11 +2,11 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 
-import Task from "./smallComponents/Task";
-import TasksContainer from "./smallComponents/TasksContainer";
-import Footer from "././smallComponents/Footer";
-import Form from "./smallComponents/TaskForm";
-import Menu from "./smallComponents/Menu";
+import Task from "./smallComponents/tasks/Task";
+import TasksContainer from "./smallComponents/tasks/TasksContainer";
+import Footer from "./smallComponents/partials/Footer";
+import Form from "./smallComponents/tasks/TaskForm";
+import Menu from "./smallComponents/partials/Menu";
 
 // Geef de context mee van de user state
 import { Context } from "../store/Store";
@@ -31,7 +31,7 @@ function Dashboard() {
 
   const getTasks = () => {
     return axios
-      .get(`https://api.tasksy.work/tasks`, {
+      .get(`${process.env.API_URL}/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ function Dashboard() {
     // Omdat ik eerst de data van de user wil hebben.
     (async () => {
       await axios
-        .get(`https://api.tasksy.work/users/me`, {
+        .get(`${process.env.API_URL}/users/me`, {
           headers: {
             // Verstuur header request met de juiste token!
             Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ function Dashboard() {
           state.user.name ? state.user.name : "..."
         }!`}</h1>
         <img
-          src={`${`https://api.tasksy.work/users/${state.user._id}/avatar`}`}
+          src={`${`${process.env.API_URL}/users/${state.user._id}/avatar`}`}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/assets/profile.svg";

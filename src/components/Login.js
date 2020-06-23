@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState, useRef } from "react";
 import swal from "sweetalert";
 
-import LoginForm from "./smallComponents/LoginForm";
-import RegisterForm from "./smallComponents/RegisterForm";
-import Footer from "./smallComponents/Footer";
+import LoginForm from "./smallComponents/user/LoginForm";
+import RegisterForm from "./smallComponents/user/RegisterForm";
+import Footer from "./smallComponents/partials/Footer";
 
 const CookieAlert = () =>
   swal(

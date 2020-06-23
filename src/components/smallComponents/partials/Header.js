@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { Context } from "../../store/Store";
+import { Context } from "../../../store/Store";
 
 function Header() {
   const [state, dispatch] = useContext(Context);
@@ -15,7 +15,7 @@ function Header() {
 
   function logOut() {
     axios
-      .post(`https://api.tasksy.work/users/logout`, {
+      .post(`${process.env.API_URL}/users/logout`, {
         headers: {
           // Verstuur header request met de juiste token!
           "Content-Type": "application/json",

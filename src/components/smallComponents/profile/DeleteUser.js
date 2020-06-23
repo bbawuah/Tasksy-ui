@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
-import { Context } from "../../store/Store";
+import { Context } from "../../../store/Store";
 
 
 function DeleteUser() {
@@ -30,7 +30,7 @@ function DeleteUser() {
 
     // Send user name to server
     axios
-      .delete(`https://api.tasksy.work/users/me`, {
+      .delete(`${process.env.API_URL}/users/me`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -46,7 +46,8 @@ function DeleteUser() {
 
         dispatch({ type: "SET_USER", payload: "" });
           // console.log(res.data);
-          localStorage.removeItem("tokens");
+         
+          document.cookie = "access_token=; max-age=- (any digit); path=/;";
 
           history.push("/");
         }

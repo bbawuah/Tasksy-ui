@@ -10,13 +10,18 @@ export default function Task({
   completed,
   callback,
 }) {
-  const token = JSON.parse(localStorage.getItem("tokens"));
+
+  let token = document.cookie.replace(
+    /(?:(?:^|.*;\s*)access_token\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  ).replace("[", "").replace("]","");
+
   // Delete task
   const deleteTask = () => {
     // console.log(taskID)
 
     axios
-      .delete(`https://api.tasksy.work/tasks/${taskID}`, {
+      .delete(`${process.env.API_URL}/tasks/${taskID}`, {
         headers: {
           // Verstuur header request met de juiste token!
           Authorization: `Bearer ${token}`,
@@ -34,7 +39,7 @@ export default function Task({
   const updateTask = () => {
     axios
       .patch(
-        `https://api.tasksy.work/tasks/${taskID}`,
+        `${process.env.API_URL}/tasks/${taskID}`,
         {
           completed: true,
         },
@@ -60,7 +65,7 @@ export default function Task({
   const restoreTask = () => {
     axios
       .patch(
-        `https://api.tasksy.work/tasks/${taskID}`,
+        `${process.env.API_URL}/tasks/${taskID}`,
         {
           completed: false,
         },
