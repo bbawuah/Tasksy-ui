@@ -46,7 +46,8 @@ function DeleteUser() {
 
         dispatch({ type: "SET_USER", payload: "" });
           // console.log(res.data);
-          localStorage.removeItem("tokens");
+         
+          document.cookie = "access_token=; max-age=- (any digit); path=/;";
 
           history.push("/");
         }

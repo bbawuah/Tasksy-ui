@@ -8,7 +8,12 @@ import { Context } from "../store/Store";
 
 function AllTasks() {
   const [state, dispatch] = useContext(Context);
-  const token = JSON.parse(localStorage.getItem("tokens"));
+
+  let token = document.cookie.replace(
+    /(?:(?:^|.*;\s*)access_token\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  ).replace("[", "").replace("]","");
+
 
   const getTasks = () => {
     return axios

@@ -29,7 +29,6 @@ function Routing() {
   const [authTokens, setAuthTokens] = useState(existingTokens);
 
   const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
   };
 

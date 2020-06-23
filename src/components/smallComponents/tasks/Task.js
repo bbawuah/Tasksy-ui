@@ -10,7 +10,12 @@ export default function Task({
   completed,
   callback,
 }) {
-  const token = JSON.parse(localStorage.getItem("tokens"));
+
+  let token = document.cookie.replace(
+    /(?:(?:^|.*;\s*)access_token\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  ).replace("[", "").replace("]","");
+
   // Delete task
   const deleteTask = () => {
     // console.log(taskID)
