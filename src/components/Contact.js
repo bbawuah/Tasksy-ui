@@ -10,27 +10,27 @@ const Contact = () => (
       <em>"Social media can also be used to make us more productive."</em>
     </blockquote>
     <ul>
-      <li>
-        <a href="https://www.instagram.com/tasksy/">
+      <a href="https://www.instagram.com/tasksy/">
+        <li>
           {" "}
           <FontAwesomeIcon icon={["fab", "instagram"]} />
           @tasksy
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/Tasksy-100775608370969">
+        </li>
+      </a>
+      <a href="https://www.facebook.com/Tasksy-100775608370969">
+        <li>
           {" "}
           <FontAwesomeIcon icon={["fab", "facebook"]} />
           Tasksy
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com/tasksy">
+        </li>
+      </a>
+      <a href="https://twitter.com/tasksy">
+        <li>
           {" "}
           <FontAwesomeIcon icon={["fab", "twitter"]} />
           @tasksy
-        </a>
-      </li>
+        </li>
+      </a>
     </ul>
     <p>
       <small>
