@@ -1,0 +1,26 @@
+
+.privacy{
+    margin: 0 auto;
+    max-width: 800px;
+    font-size: 1.750rem;
+    h2{
+        font-size: 4rem;
+        line-height: 117.8%;
+        font-weight: 800;
+        margin-bottom: 4rem;
+    }
+
+    h3{
+        margin: 2rem 0;
+    }
+    p{
+        margin: 1.250rem 0;
+        a{
+            color: inherit;
+            font-weight: bolder;
+        }
+        small{
+            color: #666;
+        }
+    }
+}

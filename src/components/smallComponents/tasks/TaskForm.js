@@ -31,7 +31,7 @@ const Form = ({ callback }) => {
         if (res.status === 201) {
           //   dispatch({ type: "SET_TASKS", payload: res.data.tasks });
 
-          console.log(res);
+          // console.log(res);
         }
       })
       .catch(({ response }) => {

@@ -1,18 +1,20 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 
 import Task from "./smallComponents/tasks/Task";
 import TasksContainer from "./smallComponents/tasks/TasksContainer";
-import Footer from "./smallComponents/partials/Footer";
+
 import Form from "./smallComponents/tasks/TaskForm";
 import Menu from "./smallComponents/partials/Menu";
+import LoadingLoop from "../components/animations/Loading";
 
 // Geef de context mee van de user state
 import { Context } from "../store/Store";
 
 function Dashboard() {
   const [state, dispatch] = useContext(Context);
+  const [loading, setLoading] = useState(true);
 
   /*
   FOR NEW PAGES KEEP THE FOLLOWING STRUCTURE***
@@ -30,6 +32,7 @@ function Dashboard() {
 
 
   const getTasks = () => {
+    setLoading(false)
     return axios
       .get(`${process.env.API_URL}/tasks`, {
         headers: {
@@ -44,6 +47,7 @@ function Dashboard() {
   useEffect(() => {
     // Immediately invoked async function expression
     // Omdat ik eerst de data van de user wil hebben.
+
     (async () => {
       await axios
         .get(`${process.env.API_URL}/users/me`, {
@@ -65,8 +69,7 @@ function Dashboard() {
     (task) => task.completed === false
   );
 
-  // console.log(state);
-  // console.log(state);
+
 
   return (
     <div className="dashboard">
@@ -88,6 +91,7 @@ function Dashboard() {
           <h2>Home</h2>
           <Form callback={getTasks} />
           <TasksContainer>
+            {loading && <LoadingLoop/>}
             {incompletedTask.map((task) => (
               <Task
                 key={task._id}
@@ -101,7 +105,6 @@ function Dashboard() {
           </TasksContainer>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

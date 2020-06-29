@@ -20,8 +20,6 @@ function LoginForm({ bool }) {
   const [state, dispatch] = useContext(Context);
   
 
-  const [open, set] = useState(false);
-
 
   // Submit handler
   function postLogin(e) {

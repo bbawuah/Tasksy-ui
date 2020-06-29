@@ -3,7 +3,6 @@ import axios from "axios";
 
 
 import Menu from "./smallComponents/partials/Menu";
-import Footer from "./smallComponents/partials/Footer";
 import UpdateName from "./smallComponents/profile/UpdateUser";
 import UpdateAvatar from "./smallComponents/profile/Avatar";
 import DeleteAvatar from "./smallComponents/profile/DeleteAvatar";
@@ -47,7 +46,6 @@ function Profile() {
           <DeleteUser/>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
