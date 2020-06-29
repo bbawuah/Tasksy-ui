@@ -4,12 +4,6 @@ import swal from "sweetalert";
 import LoginForm from "./smallComponents/user/LoginForm";
 import RegisterForm from "./smallComponents/user/RegisterForm";
 
-const CookieAlert = () =>
-  swal(
-    "Cookies",
-    "this application uses cookies to improve your experience",
-    "info"
-  );
 
 const login = () => {
   const didUpdateRef = useRef(false);
@@ -22,12 +16,15 @@ const login = () => {
   const [loginDisplay, setLoginDisplay] = useState("Login");
 
   useEffect(() => {
-    (async () => {
-      await CookieAlert();
-    })();
+    swal(
+      "Cookies",
+      "this application uses cookies to improve your experience",
+      "info"
+    )
   }, []);
 
   useEffect(() => {
+    
     if (didUpdateRef.current) {
       if (!loginBool) {
         setTimeout(() => {

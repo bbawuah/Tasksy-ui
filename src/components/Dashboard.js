@@ -31,9 +31,9 @@ function Dashboard() {
   ).replace("[", "").replace("]","");
 
 
-  const getTasks = () => {
-    setLoading(false)
-    return axios
+  const getTasks = async () => {
+
+    await axios
       .get(`${process.env.API_URL}/tasks`, {
         headers: {
           // Verstuur header request met de juiste token!
@@ -42,6 +42,8 @@ function Dashboard() {
       })
       .then((res) => dispatch({ type: "SET_TASKS", payload: res.data })) //Verstuur user data naar global state!
       .catch((err) => console.log(err));
+
+      
   };
 
   useEffect(() => {
@@ -62,6 +64,8 @@ function Dashboard() {
         .catch((err) => console.log(err));
       getTasks();
     })();
+
+    setLoading(false)
   }, []);
 
   // Filter array and send array back with incompleted todo's
