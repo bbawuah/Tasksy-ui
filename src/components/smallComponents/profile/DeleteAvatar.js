@@ -10,11 +10,16 @@ function DeleteAvatar() {
   // Displayen van evt error
   const [displayErr, setDisplayErr] = useState("");
 
-  // token
+  // token had to replace brackets
   let token = document.cookie.replace(
     /(?:(?:^|.*;\s*)access_token\s*\=\s*([^;]*).*$)|^.*$/,
     "$1"
   ).replace("[", "").replace("]","");
+
+  /*
+   The useHistory gives us access to the history object 
+   which helps us programmatically navigate or change routes.
+   */
 
   const history = useHistory();
 
@@ -39,6 +44,7 @@ function DeleteAvatar() {
 
           // console.log(res.data);
 
+          // Push new route in history object
           history.push("/dashboard");
         }
       })

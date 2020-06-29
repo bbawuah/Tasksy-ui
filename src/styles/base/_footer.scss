@@ -2,7 +2,10 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 1.5rem;
-
+  position: relative;
+  top: 17vh;
+  left: 50%;
+  transform: translate(-50%);
   div {
     display: flex;
     flex-direction: column;
@@ -17,6 +20,23 @@ footer {
       font-size: 1.375rem;
       font-weight: 400;
       margin-bottom: 0.3rem;
+    }
+
+    ul{
+      display: flex;
+      width: 100%;
+      list-style: none;
+      justify-content: center;
+      li{
+        border-left: 1px solid #EDF2F7;
+        border-right: 1px solid #EDF2F7;
+        margin: 0rem .5rem 0rem .5rem;
+        padding: 0rem .250rem 0rem .250rem;
+        font-weight: bolder;
+        a{
+          color: inherit;
+        }
+      }
     }
   }
 }

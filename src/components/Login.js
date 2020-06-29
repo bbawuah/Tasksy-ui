@@ -3,7 +3,6 @@ import swal from "sweetalert";
 
 import LoginForm from "./smallComponents/user/LoginForm";
 import RegisterForm from "./smallComponents/user/RegisterForm";
-import Footer from "./smallComponents/partials/Footer";
 
 const CookieAlert = () =>
   swal(
@@ -75,7 +74,6 @@ const login = () => {
           <RegisterForm bool={registerBool} />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -25,6 +25,10 @@ function UpdateName() {
     "$1"
   ).replace("[", "").replace("]","");
 
+  /*
+   The useHistory gives us access to the history object 
+   which helps us programmatically navigate or change routes.
+   */  
   const history = useHistory();
 
   // Submit handler
@@ -51,6 +55,7 @@ function UpdateName() {
 
           // console.log(res.data);
 
+           // Push new route in history object
           history.push("/dashboard");
         }
       })

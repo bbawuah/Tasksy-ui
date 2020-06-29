@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 import Menu from "./smallComponents/partials/Menu";
-import Footer from "./smallComponents/partials/Footer";
+
 import Task from "./smallComponents/tasks/Task";
 import { Context } from "../store/Store";
 
@@ -66,7 +66,7 @@ function AllTasks() {
             ))}
         </div>
       </main>
-      <Footer />
+
     </div>
   );
 }

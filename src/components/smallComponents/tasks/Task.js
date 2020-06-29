@@ -29,7 +29,7 @@ export default function Task({
       })
       .then((res) => {
         swal("Deleted", "You have deleted this task", "success");
-        console.log("Deleted!");
+        // console.log("Deleted!");
         return callback();
       })
       .catch((err) => console.log(err));
