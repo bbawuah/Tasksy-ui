@@ -10,7 +10,6 @@ module.exports = (env) => ({
   plugins: [
     new Dotenv({
       path: 'config/.env',
-      silent: true,
     }),
   ],
   module: {
