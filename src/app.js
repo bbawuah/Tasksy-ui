@@ -35,12 +35,10 @@ function Routing() {
   const existingTokens = token;
   const [authTokens, setAuthTokens] = useState(existingTokens);
 
-  const setTokens = (data) => {
-    setAuthTokens(data);
-  };
+ 
 
   return (
-    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+    <AuthContext.Provider value={{ authTokens, setAuthTokens }}>
       <Store>
         <Router>
           <div>
