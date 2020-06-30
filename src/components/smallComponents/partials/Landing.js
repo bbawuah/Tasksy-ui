@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NextTaskSVG from "./NextTaskSVG";
 import Trail from "../../animations/TrailAnimation";
 
 const Landing = () => {
   return (
     <div className="landing-container">
+      <img className="landing-img" src="/assets/tasksy-landing.svg"></img>
       <div className="landing-text">
         <h2><Trail str="A task management tool for achievers"/></h2>
         <p>
@@ -13,7 +13,7 @@ const Landing = () => {
         </p>
         <Link to="/login">Get Started!</Link>
       </div>
-      <NextTaskSVG />
+      
     </div>
   );
 };
