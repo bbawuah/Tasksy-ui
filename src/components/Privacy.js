@@ -20,18 +20,6 @@ const Privacy = () => (
       personal info to third parties, and we won’t use your name or company in
       marketing statements without your permission either.
     </p>
-    <h4>Billing information</h4>
-    <p>
-      When you pay for a Basecamp product, we ask for your credit card and
-      billing address. That’s so we can charge you for service, calculate taxes
-      due, and send you invoices. Your credit card is passed directly to our
-      payment processor and doesn't ever go through our servers. We store a
-      record of the payment transaction, including the last 4 digits of the
-      credit card number and as-of billing address, for account history,
-      invoicing, and billing support. We store your billing address to calculate
-      any sales tax due in the United States or VAT in the EU, to detect
-      fraudulent credit card transactions, and to print on your invoices.
-    </p>
     <h4>Geolocation data</h4>
     <p>
       We log all access to all accounts by full IP address so that we can always
@@ -42,11 +30,7 @@ const Privacy = () => (
       We also log full IP addresses used to sign up a product account. We keep
       this record forever because they are used to mitigate spammy signups.
     </p>
-    <p>
-      Web analytics data — described further in the Website Interactions section
-      — are also tied temporarily to IP addresses to assist with troubleshooting
-      cases. We blind all web analytics data after 30 days.
-    </p>
+
     <h4>Website interactions</h4>
     <p>
       When you browse our marketing pages or applications, your browser
@@ -110,7 +94,7 @@ const Privacy = () => (
 
     <h4>Location of Site and Data</h4>
     <p>
-      This Application is operated in the Europe. If you are located in the
+      This Application is operated in  Europe. If you are located in the
       United States or elsewhere outside of Europe, please be aware that any
       information you provide to us will be transferred to Europe. By using our
       site, participating in any of our services and/or providing us with your
