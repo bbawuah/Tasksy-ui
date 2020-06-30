@@ -5,10 +5,6 @@ import Landing from "./smallComponents/partials/Landing";
 
 // Simpele stateless component van de Home pagina
 // Evt de Footer verplaatsen
-const Home = () => (
-  <div>
-    <Landing />
-  </div>
-);
+const Home = () => <Landing />;
 
 export default Home;

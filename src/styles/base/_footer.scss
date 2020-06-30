@@ -3,7 +3,7 @@ footer {
   justify-content: center;
   margin-top: 1.5rem;
   position: relative;
-  top: 17vh;
+  top: 10vh;
   left: 50%;
   transform: translate(-50%);
   div {
@@ -38,5 +38,11 @@ footer {
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 650px){
+  footer{
+    top: 100%;
   }
 }
